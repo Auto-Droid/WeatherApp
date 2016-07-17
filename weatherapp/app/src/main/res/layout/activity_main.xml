@@ -1,0 +1,290 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="channel"
+            type="com.sourabhkarkal.weatherapp.model.ChannelDTO" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:weightSum="100"
+        android:background="@color/grey"
+        tools:context="com.sourabhkarkal.weatherapp.activity.MainActivity">
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="10">
+
+            <TextView
+                android:id="@+id/tvCityName"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="right"
+                android:layout_weight="70"
+                android:text='@{channel.location.city}'
+                android:textSize="@dimen/large_text_size"
+                android:textStyle="italic"
+                tools:text="PUNE" />
+
+            <WebView
+                android:id="@+id/webViewCondition"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:layout_weight="30"
+                android:background="@color/grey"
+                android:gravity="center"
+                />
+
+        </LinearLayout>
+
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_gravity="center"
+            android:layout_weight="5"
+            android:text='@{channel.location.country}'
+            android:textSize="@dimen/small_text_size"
+            android:textStyle="bold"
+            tools:text="country" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_gravity="center"
+            android:layout_weight="5"
+            android:gravity="center"
+            android:text='@{channel.item.condition.text}'
+            android:textSize="@dimen/medium_text_size"
+            android:textStyle="normal"
+            tools:text="cloudy" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="5">
+
+            <TextView
+                android:id="@+id/tvMaxTxt"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:layout_weight="50"
+                android:gravity="center"
+                android:textSize="@dimen/medium_text_size"
+                android:textStyle="italic"
+                tools:text="Max" />
+
+            <TextView
+                android:id="@+id/tvMinTxt"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:layout_weight="50"
+                android:gravity="center"
+                android:textSize="@dimen/medium_text_size"
+                android:textStyle="italic"
+                tools:text="Min" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="10">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:layout_weight="50"
+                android:gravity="center"
+                android:text='@{channel.item.forecast.get(0)!=null?channel.item.forecast.get(0).high +" "+channel.units.temperature :""}'
+                android:textSize="@dimen/x_large_text_size"
+                android:textStyle="italic"
+                tools:text="50" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:layout_weight="50"
+                android:gravity="center"
+                android:text='@{channel.item.forecast.get(0)!=null?channel.item.forecast.get(0).low +" "+channel.units.temperature :""}'
+                android:textSize="@dimen/x_large_text_size"
+                android:textStyle="italic"
+                tools:text="50" />
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_gravity="center"
+            android:layout_weight="5"
+            android:text='@{channel.item.condition.date}'
+            android:textSize="@dimen/small_text_size"
+            android:textStyle="bold"
+            tools:text="date" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="@color/white"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="5">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:layout_weight="50"
+                android:gravity="center"
+                android:layout_marginLeft="10dp"
+                android:textSize="@dimen/small_text_size"
+                android:textStyle="bold"
+                tools:text="sunrise"
+                android:text='@{channel.astronomy.sunrise!=null ? "Sunrise : "+channel.astronomy.sunrise : "" }' />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:layout_weight="50"
+                android:gravity="center"
+                android:layout_marginLeft="10dp"
+                android:textSize="@dimen/small_text_size"
+                android:textStyle="bold"
+                tools:text="sunset"
+                android:text='@{channel.astronomy.sunset!=null ? "Sunset : "+channel.astronomy.sunset : ""}' />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="5">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:layout_weight="50"
+                android:gravity="center"
+                android:layout_marginLeft="10dp"
+                android:textSize="@dimen/small_text_size"
+                android:textStyle="bold"
+                tools:text="humidity"
+                android:text='@{channel.atmosphere.humidity!=null ? "Humidity : "+channel.atmosphere.humidity +" %" : "" }' />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:layout_weight="50"
+                android:gravity="center"
+                android:layout_marginLeft="10dp"
+                android:textSize="@dimen/small_text_size"
+                android:textStyle="bold"
+                tools:text="pressure"
+                android:text='@{channel.atmosphere.pressure!=null ? "Pressure : "+channel.atmosphere.pressure +" "+channel.units.pressure : "" }' />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="5">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:layout_weight="50"
+                android:gravity="center"
+                android:layout_marginLeft="10dp"
+                android:textSize="@dimen/small_text_size"
+                android:textStyle="bold"
+                tools:text="Rising"
+                android:text='@{channel.atmosphere.rising!=null ? "UV Index : "+channel.atmosphere.rising : ""}' />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:layout_weight="50"
+                android:gravity="center"
+                android:layout_marginLeft="10dp"
+                android:textSize="@dimen/small_text_size"
+                android:textStyle="bold"
+                tools:text="Visibility"
+                android:text='@{channel.atmosphere.visibility!=null ?  "Visibility : "+channel.atmosphere.visibility +" "+channel.units.distance : "" }' />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="5">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:layout_weight="50"
+                android:gravity="center"
+                android:layout_marginLeft="10dp"
+                android:textSize="@dimen/small_text_size"
+                android:textStyle="bold"
+                tools:text="Wind"
+                android:text='@{channel.wind.speed!=null ? "Wind : "+channel.wind.speed+" "+channel.units.speed : "" }' />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:layout_weight="50"
+                android:gravity="center"
+                android:layout_marginLeft="10dp"
+                android:textSize="@dimen/small_text_size"
+                android:textStyle="bold"
+                tools:text="Chill"
+                android:text='@{channel.wind.chill!=null ? "Feels Like : "+channel.wind.chill : "" }' />
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="@color/white"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:orientation="vertical"
+            android:layout_weight="40">
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/rvDaysList"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+</layout>

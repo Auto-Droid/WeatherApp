@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="horizontal"
+    android:layout_marginTop="5dp"
+    android:layout_marginLeft="2dp"
+    android:layout_marginRight="2dp"
+    android:weightSum="100">
+
+    <TextView
+        android:id="@+id/tvDate"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="30"
+        android:gravity="center"
+        android:textSize="@dimen/small_text_size"
+        tools:text="13 Nov 2016"/>
+
+    <TextView
+        android:id="@+id/tvDayOfWeek"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="10"
+        android:gravity="center"
+        android:textSize="@dimen/small_text_size"
+        tools:text="Mon"/>
+
+    <TextView
+        android:id="@+id/tvClimate"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="30"
+        android:gravity="center"
+        android:textSize="@dimen/small_text_size"
+        tools:text="cloudy partly"/>
+
+
+
+    <TextView
+        android:id="@+id/tvHigh"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="15"
+        android:gravity="center"
+        android:textSize="@dimen/small_text_size"
+        tools:text="High"/>
+
+    <TextView
+        android:id="@+id/tvLow"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="15"
+        android:gravity="center"
+        android:textSize="@dimen/small_text_size"
+        tools:text="Low"/>
+
+
+
+</LinearLayout>

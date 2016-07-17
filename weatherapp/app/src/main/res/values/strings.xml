@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">weatherapp</string>
+    <string name="error_msg">Sorry update is not available at this moment ,Please try again.</string>
+</resources>
