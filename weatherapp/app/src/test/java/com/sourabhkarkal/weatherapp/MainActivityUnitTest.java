@@ -43,6 +43,10 @@ public class MainActivityUnitTest {
         mainActivity.readDataFromJson(root);
     }
 
+    /**
+     * this test will fail since I have add wrong json string
+     * @throws IOException
+     */
     @Test
     public void weather_wrong_data_parsing_test() throws IOException {
         JsonNode root = new ObjectMapper().readTree(wrongSampleJson);
